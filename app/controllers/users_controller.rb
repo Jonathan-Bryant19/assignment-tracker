@@ -1,22 +1,14 @@
 class UsersController < ApplicationController
-  
+  skip_before_action :authorize, only: :create
+
   def new
     @user = User.new
   end
 
   def create 
-    puts("create action started")
-    @user = User.new(user_params) 
-    puts("user created")
-    puts("user: ", @user)
-    if @user.save 
-      puts("user saved...attempting redirect to home")
-      session[:user_id] = @user.id 
-      redirect_to '/' 
-    else 
-      puts("did not save...")
-      redirect_to '/signup' 
-    end 
+    user = User.create!(user_params)
+    session[:user_id] = user.id
+    render json: user, status: :created
   end 
 
   def show
