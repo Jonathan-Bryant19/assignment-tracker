@@ -6,19 +6,21 @@ import Signup from "../components/Signup"
 import NavBar from "../components/NavBar"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [user, setUser] = useState(null)
 
-  // useEffect(() => {
-  //   fetch("/hello")
-  //     .then((r) => r.json())
-  //     .then((data) => setCount(data.count))
-  // }, [])
+  useEffect(() => {
+    fetch("/me")
+      .then((r) => r.json())
+      .then((data) => setUser(data))
+  }, [])
+
+  console.log(user)
 
   return (
     <Router>
       <Routes>
-        <Route element={<NavBar />} />
-        <Route path="/" element={<Home />} />
+        <Route element={<NavBar user={user} />} />
+        <Route path="/" element={<Home user={user} />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
       </Routes>

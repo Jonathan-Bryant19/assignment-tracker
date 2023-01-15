@@ -1,8 +1,13 @@
 import React from 'react'
 
-function Home() {
+function Home( {user} ) {
   return (
-    <div>Home</div>
+    <div>
+      <h1>Home</h1>
+      {user ? <h2>{user.username}</h2> : <h2>No data</h2>}      
+      
+
+    </div>
   )
 }
 
