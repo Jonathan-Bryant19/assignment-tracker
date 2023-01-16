@@ -18,8 +18,8 @@ function App() {
 
   return (
     <Router>
+      <NavBar user={user} />
       <Routes>
-        <Route element={<NavBar user={user} />} />
         <Route path="/" element={<Home user={user} />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
