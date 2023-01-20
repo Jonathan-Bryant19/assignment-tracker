@@ -8,30 +8,30 @@ function Login() {
   const [user, setUser] = useState(null)
   const navigate = useNavigate()
   // This is code that needs to be fully reviewed. Was copy/pasted from Signup.  
-  // function onLogin(e) {
-  //   e.preventDefault()
-  //   fetch('/signup', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       username,
-  //       email,
-  //       password,
-  //       password_confirmation: passwordConfirmation
-  //     })
-  //   }).then(r => {
-  //     if (r.ok) {
-  //       r.json().then(user => setUser(user))
-  //       console.log(user)
-  //       navigate('/', {state: user})
-  //     } else if (r.status === 422) {
-  //       r.json().then(json => setErrors(json.errors))
-  //       console.log(errors)
-  //     }
-  //   })
-  // }  
+  function onLogin(e) {
+    e.preventDefault()
+    // fetch('/signup', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     username,
+    //     email,
+    //     password,
+    //     password_confirmation: passwordConfirmation
+    //   })
+    // }).then(r => {
+    //   if (r.ok) {
+    //     r.json().then(user => setUser(user))
+    //     console.log(user)
+    //     navigate('/', {state: user})
+    //   } else if (r.status === 422) {
+    //     r.json().then(json => setErrors(json.errors))
+    //     console.log(errors)
+    //   }
+    // })
+  }  
   
   return (    
     <div className='container'>
@@ -53,7 +53,7 @@ function Login() {
                   <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                   <label className="form-check-label" for="exampleCheck1">Check me out</label>
               </div>
-              <button type="submit" className="btn btn-primary">Submit</button>
+              <button type="submit" className="btn btn-primary" onClick={onLogin}>Submit</button>
           </form>
       </div>
     </div>

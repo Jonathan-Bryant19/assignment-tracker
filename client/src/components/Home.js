@@ -1,6 +1,11 @@
-import React from 'react'
+import { useState, useEffect } from "react"
+import { useNavigate } from 'react-router-dom'
 
 function Home( {user} ) {
+  console.log("Home: ", user)
+
+  let navigate = useNavigate()
+
   return (
     <div>
       <h1>Home</h1>

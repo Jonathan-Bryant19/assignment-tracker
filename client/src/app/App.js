@@ -8,19 +8,31 @@ import NavBar from "../components/NavBar"
 function App() {
   const [user, setUser] = useState(null)
 
+  // useEffect(() => {
+  //   console.log("fetch to /me route about the fire...")
+  //   fetch("/me")
+  //     .then((r) => r.json())
+  //     .then((data) => setUser(data))
+  // }, [])
+
   useEffect(() => {
-    fetch("/me")
-      .then((r) => r.json())
-      .then((data) => setUser(data))
+    fetch('/me').then(r => {
+        if (r.ok) {
+            r.json().then(user => setUser(user))
+        } else {
+            if (r.status === 401) {
+                console.log("User is not logged in...")
+            }
+        }
+    })
   }, [])
 
-  console.log(user)
+  console.log("App: ", user)
 
   return (
     <Router>
-      <NavBar user={user} />
       <Routes>
-        <Route path="/" element={<Home user={user} />} />
+        <Route exact path="/" element={<><NavBar /><Home user={user} /></>} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
       </Routes>

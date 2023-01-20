@@ -9,7 +9,7 @@ class ApplicationController < ActionController::API
   end 
 
   def authorize 
-    puts(current_user)
+    puts("CURRENT USER: ", current_user)
     redirect_to '/login' unless current_user 
   end
 
