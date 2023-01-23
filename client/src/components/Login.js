@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 function Login() {
   const [username, setUsername] = useState('')
@@ -30,7 +30,12 @@ function Login() {
       }
     })
   }  
-  console.log(username, password)
+  
+  function routeToSignup() {
+    const path = '/signup'
+    navigate(path)
+  }
+
   return (    
     <div className='container'>
       <div className='row mt-3'>
@@ -50,8 +55,13 @@ function Login() {
               <div className="mb-3 form-check">
                   <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                   <label className="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>              
+              <div className='mb-3'>
+                <button type="submit" className="btn btn-primary" onClick={onLogin}>Submit</button>
               </div>
-              <button type="submit" className="btn btn-primary" onClick={onLogin}>Submit</button>
+              <div className='mb-3'>
+                <button type="button" className="btn btn-danger" onClick={routeToSignup}>Signup</button>
+              </div>  
           </form> 
       </div>
     </div>

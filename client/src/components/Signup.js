@@ -35,6 +35,11 @@ function Signup() {
     })
   }
   
+  function routeToLogin() {
+    const path = '/login'
+    navigate(path)
+  }
+
   return (
       <div className='container'>
           <div className='row mt-3'>
@@ -68,7 +73,12 @@ function Signup() {
                       <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                       <label className="form-check-label" for="exampleCheck1">Check me out</label>
                   </div>
-                  <button type="submit" className="btn btn-primary" onClick={onSignup}>Submit</button>
+                  <div className='mb-3'>
+                    <button type="submit" className="btn btn-primary" onClick={onSignup}>Submit</button>
+                  </div>
+                  <div className='mb-3'>
+                    <button type="button" className="btn btn-danger" onClick={routeToLogin}>Cancel</button>
+                  </div> 
               </form>
           </div>
       </div>
