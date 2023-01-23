@@ -2,9 +2,21 @@ import { useState, useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 
 function Home( {user} ) {
-  console.log("Home: ", user)
-
-  let navigate = useNavigate()
+  // const [user, setUser] = useState(null)
+  const navigate = useNavigate()
+  console.log("Home.js: ", user)
+  // useEffect(() => {
+  //   fetch('/me').then(r => {
+  //     if (r.ok) {
+  //       r.json().then(user => setUser(user))
+  //     } else {
+  //       if (r.status === 401) {
+  //         console.log("User is not logged in...")
+  //         navigate('/login')
+  //       }
+  //     }
+  //   })
+  // }, [])
 
   return (
     <div>

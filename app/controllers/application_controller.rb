@@ -9,8 +9,7 @@ class ApplicationController < ActionController::API
   end 
 
   def authorize 
-    puts("CURRENT USER: ", current_user)
-    redirect_to '/login' unless current_user 
+    return render json: {error: "You are not logged in"}, status: :unauthorized unless current_user
   end
 
   private
