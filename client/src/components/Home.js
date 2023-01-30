@@ -29,7 +29,7 @@ function Home( {user} ) {
   return (
     <div>
       <h1>Home</h1>
-      {isLoading ? <h2>Loading...</h2>: user ? <h2>{user.username}</h2> : <h2>No data</h2>}
+      {isLoading ? <h2>Loading...</h2>: (user ? <h2>{user.username}</h2> : <h2>No data</h2>)}
     </div>
   )
 }

@@ -25,7 +25,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<><NavBar user={user} /><Home user={user} /></>} />
+        <Route exact path="/" element={<><NavBar user={user} setUser={setUser} /><Home user={user} /></>} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
       </Routes>

@@ -1,15 +1,18 @@
-import React from 'react'
+import { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 
-function NavBar( {user} ) {
+function NavBar( {user, setUser} ) {
+
     const navigate = useNavigate()
+
+    console.log("NavBar: ", user)
 
     function onLogout() {
       fetch('/logout', {
         method: 'DELETE'
       }).then(r => {
         if (r.ok) {
-          user = null
+          setUser(null)
           navigate('/login')      
         }
       })
