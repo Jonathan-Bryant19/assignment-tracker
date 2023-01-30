@@ -53,11 +53,6 @@ function Signup() {
                   </div>
                   <div className='mb-3'>
                       <label for="email" className="form-label">Email</label>
-                      <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
-                      <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                  </div>
-                  <div className='mb-3'>
-                      <label for="email" className="form-label">Confirm Email</label>
                       <input type="email" className="form-control" id="confirmEmail" aria-describedby="emailHelp" onChange={(e) => setEmail(e.target.value)} />
                       <div id="emailHelp" className="form-text">Conditionally render if emails don't match</div>
                   </div>

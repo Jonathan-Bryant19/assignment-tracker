@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 
-function NavBar() {
+function NavBar( {user} ) {
     const navigate = useNavigate()
 
     function onLogout() {
@@ -9,6 +9,7 @@ function NavBar() {
         method: 'DELETE'
       }).then(r => {
         if (r.ok) {
+          user = null
           navigate('/login')      
         }
       })
