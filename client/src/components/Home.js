@@ -2,8 +2,8 @@ import { useState, useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 
 function Home( {user} ) {
-  // const [user, setUser] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (user) {
@@ -11,8 +11,15 @@ function Home( {user} ) {
     }
   }, [user])
 
-  // const navigate = useNavigate()
-  // console.log("Home.js: ", user)
+  useEffect(() => {
+    fetch('/me').then(r => {
+      if (r.status === 401) {
+        console.log("User is not logged in...")
+        navigate('/login')
+      } 
+    })
+  }, [])
+
   // useEffect(() => {
   //   fetch('/me').then(r => {
   //     if (r.ok) {
