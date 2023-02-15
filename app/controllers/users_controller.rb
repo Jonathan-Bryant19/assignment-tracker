@@ -12,7 +12,13 @@ class UsersController < ApplicationController
   end 
 
   def show
-    render json: current_user, status: :ok
+    puts('SHOW HIT!!!!!!!!')
+    byebug
+    if current_user
+      render json: current_user, status: :ok
+    else
+      puts("")
+    end
   end
 
   private

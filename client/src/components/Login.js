@@ -22,7 +22,6 @@ function Login() {
     }).then(r => {
       if (r.ok) {
         r.json().then(user => setUser(user))
-        console.log(user)
         navigate('/', {state: user})
       } else if (r.status === 422) {
         r.json().then(json => setErrors(json.errors))
