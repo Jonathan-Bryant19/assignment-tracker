@@ -5,12 +5,11 @@ function NavBar( {user, setUser} ) {
 
     const navigate = useNavigate()
 
-    console.log("NavBar: ", user)
-
     function onLogout() {
       fetch('/logout', {
         method: 'DELETE'
       }).then(r => {
+        console.log(r)
         if (r.ok) {
           setUser(null)
           navigate('/login')      
