@@ -13,7 +13,7 @@ function Home( {user} ) {
 
   useEffect(() => {
     fetch('/me').then(r => {
-      if (r.status === 401) {
+      if (r.status === 204) {
         console.log("User is not logged in...")
         navigate('/login')
       } 

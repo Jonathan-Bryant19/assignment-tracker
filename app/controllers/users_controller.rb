@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :authorize, only: [:new, :create]
+  before_action :authorize
+  skip_before_action :authorize, only: [:create, :show]
 
   def new
     @user = User.new
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
     if current_user
       render json: current_user, status: :ok
     else
-      puts("")
+      redirect_to '/login'
     end
   end
 
