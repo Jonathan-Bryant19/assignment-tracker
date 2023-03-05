@@ -5,21 +5,6 @@ function Home( {user} ) {
   const [isLoading, setIsLoading] = useState(true)
   const navigate = useNavigate()
 
-  useEffect(() => {
-    if (user) {
-      setIsLoading(false)
-    }
-  }, [user])
-
-  useEffect(() => {
-    fetch('/me').then(r => {
-      if (r.status === 204) {
-        console.log("User is not logged in...")
-        navigate('/login')
-      } 
-    })
-  }, [])
-
   // useEffect(() => {
   //   fetch('/me').then(r => {
   //     if (r.ok) {
@@ -32,6 +17,24 @@ function Home( {user} ) {
   //     }
   //   })
   // }, [])
+  
+  useEffect(() => {
+    if (user) {
+      setIsLoading(false)
+    } else {
+      navigate('/login')
+    }
+  }, [user, navigate])
+
+  // useEffect(() => {
+  //   fetch('/me').then(r => {
+  //     if (r.status === 204) {
+  //       console.log("User is not logged in...")
+  //       navigate('/login')
+  //     } 
+  //   })
+  // }, [])
+
 
   return (
     <div>

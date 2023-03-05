@@ -7,7 +7,6 @@ import NavBar from "../components/NavBar"
 
 function App() {
   const [user, setUser] = useState(null)
-  // const navigate = useNavigate()
 
   useEffect(() => {
     fetch('/me').then(r => {
